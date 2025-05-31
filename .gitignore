@@ -1,2 +1,579 @@
 # Node artifact files
 node_modules/
+
+I.
+ Analyse et reformulation du besoin
+ 1.
+ Cadrage/contexte et présentation du projet
+ Voir Partie (A et B du cahier de charge)
+ 2.
+ Utilisateurs
+ Analyse fonctionnelle
+ a)
+ Diagramme de pieuvre
+ Informations
+ (Notes, Relevés
+ d’absenses, etc)
+ Système
+ d’authentification
+ Sécurité
+ Accessibilité
+ Confidentialité
+ Espace Élèves
+ Esthétique
+ Expérience
+ utilisateur/Ergonomie
+ Écologie
+ Protection des
+ données (CNIL,
+ RGPD)
+ Disponibilité
+ 5
+6
+ b) Fonctionsduproduits
+ FP:Fonctionprincipale
+ FC:Fonctiondecontrainte
+ ID Description
+ FP1 Permettreàl’utilisateurdeconsulterlesinformations
+ FP2 Permettreàl’utilisateurs’authentifierviaunseulepointunique
+ FP3 Permettreàl’utilisateurdetéléverseretéditerlesinformations
+ FC1 Rendelesinformationconfidentielles
+ FC2 Rendrelaplateformeesthétiqueeten cohérenceaveclacharteéditorialede
+ 3iLIngénieur
+ FC3 Rendrelaplateformeaccessiblesurlesdifférentestaillesd’appareils
+ FC5 Rendrelaplateformeergonomique,intuitive
+ FC6 Rendrelaplateformesécurisée
+ FC7 Rendrelaplateformepleinementdisponiblepourles3sites
+ FC8 Respecterlesprotectiondesdonnéespersonnelles(RGPD:CNIL)
+ FC9 Limitesl’impactcarbonedelaplateforme
+ 3. Analysedespartiesprenantes
+ ID Nom Pouvoir Intérêt Attentes Contributions
+ P1 Lesélèves élevé élevé Sitewebmoderne
+ ergonomiqueet intuitif
+ Recueildu
+ besoin
+ P2 Direction3iL Élevé Élevé Améliorationdel'imagede
+ l'école,attirerdenouveaux
+ élèves,
+ Délimitationdu
+ périmètre
+ P3 Lesinvestisseurs Élevé Élevé Augmentationduchiffre
+ d'affaire
+ Miseà
+ dispositiondu
+ budget
+ P4 Lesparents Faible Faible Améliorationdelaqualité
+ del'enseignement
+ Recueildu
+ besoin
+ P5 Entreprises
+ (Stage,
+ Faible Faible Plateformeplus
+ ergonomique
+ Recueildu
+ besoin
+alternance)
+ P6 Lesmètres
+ d'apprentissage
+ P7 Lesautorités
+ public
+ P8
+ Syndicat
+ F9
+ Fournisseur
+ F10
+ Hébergeur
+ Faible
+ Élevé
+ Élevé
+ Faible
+ Faible
+ Faible
+ Élevé
+ Élevé
+ II.
+ Élevé
+ Faible
+ Plateforme plus
+ ergonomique
+ Améliorer la qualité de
+ l'enseignement
+ Améliore la qualité de
+ l'enseignement
+ Augmenter son chiffre
+ d’affaire
+ Augmenter son chiffre
+ d’affaire
+ Cahier de charges
+ A. Cadrage/Contexte
+ 1.
+ Recueil du
+ besoin
+ Encadrement
+ Encadrement
+ Réalisation du
+ site
+ Héberger la
+ plateforme
+ Commanditaire du projet : 3iL Ingénieurs
+ 3iL Ingénieur est une grande école d’informatique française. Elle propose
+ plusieurs formations parmi lesquelles Prépa intégrée, Ingénieurs, Bachelors, Master. Elle
+ s’est assez développée au fil du temps et s’est étendue sur plusieurs sites notamment
+ Limoges (qui est son plus grand site avec la totalité des formations), Nantes et Rodez. 3iL
+ a développé des partenariats avec de nombreux pays étrangers. Grâce à ses anciens
+ élèves, elle dispose d’une association permettant de réunir les entreprises et les élèves
+ tout en permettant à ces derniers de trouver plus facilement des opportunités de
+ d’alternance et de stage. En tant que formatrice du digital, 3iL Ingénieurs se doit d’avoir
+ un système d’information à la hauteur de son image et de ses ambitions.
+ 2.
+ Environnement existant
+ 3iL Ingénieurs a mis en place depuis 2010 une plateforme officielle, un site web
+ permettant aux élèves de consulter les informations notamment :
+ Ø Lesnotes et les relevés d’absence des élèves : il s’agit des fichiers au format pdf
+ téléversés sur la plateforme et téléchargeable par les utilisateurs
+ 7
+Ø Leprocès verbaux (PV) de jury
+ Ø Lesinformations de scolarité comme calendrier académique, périodes d’examens,
+ modalités de passage des épreuves, règlement intérieur
+ Ø Lesinformations en ce qui concerne les stages : conseils pour décrocher un stages,
+ procédures pour la signatures de la convention de stage, recommandation pour le
+ suivie de stage
+ Ø Lesfichiers importants comme la fiche de recherche de stage, les communiqués
+ officiels, l’actualité de l’école.
+ Ce site web est alimenté et géré grâce à un un CMS, entièrement séparé des ressources de
+ l’école et repose essentiellement sur deux élément qu’il est essentiel de noter :
+ Ø Unegestion des accès avec un système d’authentification reposant essentiellement
+ sur (INE/date de naissances)
+ Ø Un pluginduCMS,customisé pour créer et mettre à jour les PV de jury.
+ 3.
+ Limites de l’environnement existant
+ Les besoins de 3iL Ingénieurs ont évoluées, le web s’est modernisé, L’espace Élevé de
+ 2010 (celui présenté) à la section précédante commence à montrer ses limites. Voici les
+ problématiques que pose le système actuellement :
+ Ø Un designfade : les standards web on évolués, les site se à l’air vieillissant et
+ n’épouse plus la charte éditoriale de 3il Ingénieurs
+ Ø 3iLadésormais 3 sites : Limoges, Nantes et Rodez et avoir 3 systèmes séparés
+ révèle un manque de cohérence et n’encourage pas le sentiment d’appartenance.
+ Ø Uneaccessibilité qui n’est plus d’actualité. Le Site ne s’affiche pas
+ convenablement sur les appareils de petites tailles. Ce qui est problématique
+ sachant que la majorité du trafic de la plateforme se fait sur téléphone ou sur
+ tablette.
+ Ø Uneexpérience utilisateur pénible avec la multiplication des sources
+ d’authentifications qui va de pari avec le nombre de points d’information (Moodle,
+ Espace élèves, Hyperplanning, etc.). Ceci va plus loin avec l parents et les maîtres
+ d’apprentissage qui doivent avoir autant de compte que le nombre d’élèves qu’ils
+ ont à leur charge
+ 8
+Ø Ilyapasde mise à jours des informations. 3iLIngénieurs surveille constamment
+ le marché du travail pour modifier le contenu de ses formations et s’assurer
+ qu’elles restent alignés avec le terrain. Ses mise à jour ne sont pas reflétée sur le
+ plateforme.
+ Ø Unsystème de gestion d’accès au information qui présente des failles avec des
+ contenus qui sont proposés sans filtre aux utilisateurs. Ceci entraîne le fait que les
+ utilisateurs puisse être noyés dans des d’informations qui ne les sont pas
+ directement adressées.
+ B. Présentation du projet
+ 1.
+ Objectifs du projet
+ C’est pour palier aux lacunes présentée à la section précédente que ce projet S’inscrit.
+ Voici les objectifs que vise le projet :
+ Ø Undesign moderne et en phase avec la charte éditoriale de 3iL Ingénieurs
+ Ø Uneaccessibilité d’actualité avec prise en comptes des différentes tailles
+ d’appareils
+ Ø Uneplateforme homogène qui inclut les 3 sites de l’école : Limoges, Nantes et
+ Rodez.
+ Ø Unsystème d’authentification unifié pour tous les points d’information de l’école
+ Ø Unexpérience utilisateur agréable avec un seul compte et un seule connexion
+ indépendamment du types d’utilisateur.
+ Ø Unegestion de la confidentialité avec la restriction de l’accès aux informations
+ aux utilisateurs concernés.
+ Ø Unsystème plus évolutifs avec prise en chargement dynamiquement le
+ changement du contenu des informations.
+ 2.
+ Ø Laconception
+ Périmètres du projet
+ a)
+ Inclus dans le projet
+ 9
+ Ø Ledéveloppement
+Ø Lestests
+ Ø L’hébergement ( plus migration)
+ b)
+ Ø Lamaintenance
+ Exclus dans le projet
+ C. Spécifications fonctionnelles et techniques
+ 1.
+ 2.
+ Diagramme de cas d’utilisation
+ Spécifications fonctionnelles
+ a)
+ Authentification unique pour l’école
+ Ø Utilisateurs concernés : Élèves, Administrateurs
+ Ø Description : Système unique qui permet l’authentification non seulement l’espèce
+ élève, mais aussi sur les autres points d’informations comme le Moodle,
+ Hyperplanning, etc. Ce système se base sur les adresses web de l’école et ne peut
+ pas être utilisé par un parent ou un maître d’apprentissage
+ 10
+Ø Caractéristiques :
+ o Protocol utilisé : Oauth2 OpenId
+ o Provider : Microsoft OpenId
+ o Adresse mail autorisée : Adresses mail du domaine de 3il Ingénieurs. C’est
+ à dire se terminant par @3il.fr
+ Ø Critères d’acceptation :
+ o L’interface de connexion doit être identique pour toute les plateformes qui
+ requièrent cette authentification (Espace élèves, Moodlle, etc.)
+ o Aprèsauthentifications, l’utilisateurs est redirigé vers la plateforme qu’il
+ voulait accéder au départ
+ o Plus de 10 tentatives échouées de connexion doit entraîner un suspension
+ temporaire du compte pendant 24h
+ b)
+ Authentification par mail/mot de passe
+ Ø Utilisateurs concernés : parents, maîtres d’apprentissage
+ Ø Description : Les parents et les maîtres d’apprentissages n’ayant pas d’adresse
+ mail de l’école, ils ont un moyen d’authentification dédié qui s’intègre au système
+ d’authentification unifié
+ Ø Caractéristiques :
+ o Moyendeconnexion : mot de passe /email ou
+ Ø Critères d’acceptation :
+ o Lecompte doit être associé à un ou plusieurs étudiants
+ c)
+ Consultation des information
+ Ø Utilisateurs concernés : élèves, parents, maîtres d’apprentissage, administrateurs
+ Ø Description : Présenter les informations en fonction des profils utilisateurs.
+ Ø Caractéristiques
+ o Filtrer le contenu en fonction des utilisateurs
+ o Contenu classé par catégories
+ Ø Critères d’acceptions
+ o Informations pertinentes en premières lignes
+ o Lesinformations urgentes sont sont mises en évidences
+ 11
+d)
+ Éditer les informations
+ Ø Utilisateurs concernés : Administrateurs
+ Ø Description : Permettre de pouvoir éditer le contenu statique du site web
+ Ø Caractéristiques :
+ o Possibilité de formater le texte (taille, police, couleur)
+ o Possibilité d’ajouter des photos et des vidéo
+ o Possibilité de pouvoir programmer la publication d’un contenu
+ o Possibilité de passer un contenu en brouillon et de le publier plus tard
+ Ø Critères d’acceptation :
+ o L’édition est horodatés avec la date l’heure et le l’utilisateur qui a effectuer
+ l’édition
+ o L’éditeur présente en live le rendu lorsque l’utilisateur est un train de
+ travailler
+ e)
+ Téléverser les fichiers
+ Ø Utilisateurs concernés : Administrateurs
+ Ø Description : Téléverser les différents fichiers sur la plateforme pour construire
+ une médiathèque. Cette médiathèque servira de base pour sélectionner créer un
+ PVouéditer le contenu
+ Ø Caractéristiques :
+ o Latailles du fichier téléversé ne doit pas repasser 1G0
+ o Leformat des fichiers téléverser doit être PDF, Texte, image ou tableur.
+ o Permettre de téléverser directement sur le CMS sans passer par un verser
+ FTP ou SSH
+ o Lesfichiers doivent rechargeables par les utilisateurs
+ o Ildoit avoir la possibilité d’organiser les fichier téléversés en dossiers et
+ sous dossiers
+ Ø Critère d’acceptation :
+ o Lorsdutéléchargement, une barre de progression présente le l’évolution de
+ la tâches
+ o Lestéléchargements des plusieurs fichiers (comme pour tous les élèves
+ d’une salle de classe) est automatisé
+ 12
+o Lefichiers sont téléchargeable seulement par les utilisateurs qui ont le droit
+ f)
+ Gérer les PV
+ Ø Utilisateurs concernés : Administrateurs
+ Ø Description : Permettre de d’ajouter les PV directement sur la plateforme dans un
+ espace dédié
+ Ø Caractéristiques :
+ o L’enregistrement d’un PV se fait via un formulaire dédié comprenant les
+ champs :date, cycle, année, FE ou FA, type de PV, l’étudiant concerné,
+ fichiers PVs
+ o LesPVsontau format PDF
+ o Lataille maximale du fichier est de 50MO
+ Ø Critères d’acceptation :
+ o Seuls les utilisateurs concernés ont le droit de télécharger les PVs
+ o Ilyapossibilité d’automatiser la création des PV sur un grand nombre
+ comme une salle de classe
+ 3.
+ Spécifications techniques
+ a)
+ Infrastructure
+ Ø Typed’hébergement : Cloud (donc externe au site 3iL)
+ Ø Localisation du serveur : France
+ Ø RAMminimale:16G0
+ Ø Nombreminimal CPU : 8
+ b)
+ Couche logicielle
+ Ø Langage de programmation : PHP
+ Ø CMS:Wordpress ou Jumla
+ Ø Bases de données : MySQL ou PostgreSQL
+ Ø Conteneurisation : Docker
+ c)
+ Sécurité
+ Ø Hachage des mots de passe en base de données avec le protocole bcrypts
+ Ø Sécurité SSL/TLS
+ 13
+Ø Protection contre les attaques force brute par la limitation du nombre connexion
+ par jour à 10
+ Ø Chiffrage des données les plus sensibles
+ d)
+ Disponibilité
+ Ø Tempsderéponse max global: 400 ms
+ Ø Tempsderéponse max de la base de données : 100ms
+ Ø Sauvegarde journalière des répliquas de la base de données
+ Ø Tempsdeconservation minimal des répliquas de la base de données : 30 jours
+ Ø Miseàl’échelle automatique en augmentant le nombre de serveurs lorsque le site
+ est surchargé
+ Ø Miseenplace d’un CDN et d’un serveur de cache Redis pour limiter la latence
+ e)
+ Expérience utilisateur/Esthétique
+ Ø Nombredeclics maximum pour accéder à une fonctionnalité : 3
+ Ø Fonctionnalité Glisser Déposer lors du téléversement de fichiers
+ Ø Informations pertinentes en première lignes
+ Ø Couleurs, polices, et tailles de caractères conforment à la charte éditoriale de 3iL
+ Ingénieurs
+ f)
+ Accessibilité
+ Ø Appareils compatibles sur téléphones, tablettes et ordinateurs
+ Ø Version minimale des navigateurs
+ o Desktop : Chrome 50, Firefox 49, Safari 6
+ o Mobile : Chrome v33, Safari 9
+ Ø Site entièrement lisible par les lecteurs d’écran
+ g)
+ Protection des données
+ Respect strict des normes réglementaires : CNIL et RGPD
+ h)
+ Écologies
+ Taux maximum d’émission de CO2 par le serveur : 85g de CO2/Kwh
+ 14
+D. Contraintes du projet
+ 1.
+ Coûts du projet
+ Pour ce projet, une enveloppe de 37 000 € à été mise a disposition pour couvrir :
+ Ø Laconception
+ Ø Laréalisation
+ Ø L’hébergement
+ Ø Laformation
+ 2.
+ Délais du projet
+ Le projet doit être livré avant la date du 20 Février 2025.
+ Ø Publication de l’appel d’offre : 28 octobre 2024
+ Ø Conférence de soumissionnaires : 11 novembre 2024
+ Ø Réponse à l’appel d’offre : 12 novembre 2024- 29 novembre 2024
+ Ø Sélection du fournisseur : 2 décembre 2024- 13 décembre 2025
+ Ø réalisation : 16 décembre 2024-5 février 2025
+ Ø Recette : 6 février 2025
+ Ø Hébergement :10 février 2025
+ Ø Formation 11 février- 13 février 2025
+ 3.
+ Méthodologie de gestion de projet
+ La méthodologie de gestion de projet attendu est un cycle en V. La fin de chaque étapes
+ doit se matérialiser par la remise du livrable concerné par l’étape.
+ E. Livrables attendus
+ Ø Maquettes graphiques
+ Ø Cahier de conception
+ Ø Cahier de tests
+ Ø Lecodesource
+ Ø Cahier de recette
+ Ø Documentation
+ Ø Livret de formation (Texte ou vidéo)
+ 15
+III. Base de sélection du fournisseur
+ Critère
+ Respect des délais
+ Fonctionnalités couvertes
+ Respect des coûts
+ Conditions de paiement
+ Conditions de réalisation
+ Garantie (Suivi après vente)
+ Conditions de réalisation
+ Écologies
+ Notoriété
+ Coefficient F1
+ 5
+ 4
+ 4
+ 3
+ 3
+ 2
+ 2
+ 2
+ 1
+ IV. Analyse de risques
+ 1.
+ 2.
+ P=Probabilité
+ Matrices de risques
+ Registre de risques
+ F2
+ F3
+ F4 F5
+ 16
+17
+ G=Gravité
+ C=Criticité
+ ID Description PGC
+ Conséquences
+ potentielles Actions/ContreMesures
+ R1
+ Dépassement
+ dedélais 4 5 20-Augmentationdescoûts-Opportuniténonsaisies-Plandesuivi rigoureuxdes
+ délais-Contrôlesinopinés
+ R2 Attaqueweb 3 5 15-Baissedenotoriété-Pertedeconfiance-Arrêtdeservice-Auditdesécuritéset tests
+ depénétration-Respectsdesnormesde
+ sécurité
+ R3
+ Dépassement
+ decoûts 2 5 10-Projetnonachevéou
+ achevéavecpeude
+ fonctionnalités-Baissedelaqualité-Plandesuivi rigoureuxdes
+ coûts-Priorisationdes
+ fonctionnalitéslesplus
+ importantes
+ R4
+ Pertede
+ donnéeslors
+ delamigration 2 5 10-Perturbationdeservices-Arrêtdubusiness-Pertedeconfiance-Plandemigration-Testavantetaprèsla
+ migration
+ R5
+ Obsolescence
+ technologique 3 3 9-Difficultéde
+ maintenanceet
+ d'évolution-Difficultéde
+ concurrencer lessolutions
+ modernes-Architectureenmicro
+ servicepour limiter les
+ changements-Privilégier lestechnologies,
+ matures,ancienneset
+ évolutives
+ R6
+ Expositiondes
+ données 3 3 9-Voldedonnées-Sanctionsréglementaires-Auditdesécurité-Sensibilisationdeséquipes
+ dedéveloppementàla
+ cybersécurité-Chiffragedesdonnées
+18
+ R7 Indisponibilité 2 3 6-Arrêt temporairede
+ service-Pertedecrédibilité-Miseenplaced'un
+ répartiteurdechargequi
+ s'ajusteenfonctiondela
+ charge(auto-scaling)-Miseenplaced'unserveur
+ decache-Réplicationdelabasede
+ donnée
+ R8
+ Mauvaise
+ utilisationdu
+ système 2 1 2-Baissedeproductivité-Baissedemotivations-Erreursdansletravail-Formation-Documentation-Supportutilisateur
+ V. Estimationdesdélaisetrétroplanningglobal
+ 1. Estimationdesdélais
+ Tâches DateDébut Datefin Nombrejours
+ Débutduprojet 7oct.2024 0
+ Initialisation
+ Analysedubesoin 7oct.2024 18oct.2024 10
+ Rédactiondel'appeld'offre 21/10/2024 25oct.2024 5
+ Publicationdel'appeld'offre 28/10/2024 28oct.2024 1
+ Conférencedes
+ soumissionnaires 29/10/2024 11nov.2024 10
+ Réponseàl'appeld'offre 12/11/2024 29nov.2024 14
+ Sélectiondufournisseur 02/12/2024 13déc.2024 10
+ Réalisation
+ Conceptiongénérale 16/12/2024 18déc.2024 3
+ Conceptiondétaillée 19/12/2024 25déc.2024 5
+ Développement 26/12/2024 22janv.2025 20
+ Testsunitaires 23/01/2025 29janv.2025 5
+ Testsdevalidation 30/01/2025 3févr.2025 3
+ Testsd'acceptation 04/02/2025 5févr.2025 2
+ Livraison
+ Recette 06/02/2025 6févr.2025 1
+ Déploiement 07/02/2025 10févr.2025 2
+ Formation 11/02/2025 13févr.2025 3
+ Finduprojet 14/02/2025 13févr.2025
+Projet total
+ 7 oct. 2024 13 févr. 2025
+ 94
+ 2.
+ Rétroplanning global
+ 19
+20
+21
+ VI. Estimationdescoûts
+ Ressources
+ humaines Prix/Jour
+ Nombrede
+ jours
+ Nombrede
+ personnes Prixtotal
+ Chefdeprojet 400,00€ 20 1 8000,00€
+ Concepteur 300,00€ 8 1 2400,00€
+ Designer 200,00€ 5 1 1000,00€
+ Développeur 250,00€ 20 2 10000,00€
+ Testeur 250,00€ 10 1 2500,00€
+ Formateur 250,00€ 3 1 750,00€
+ Soustotal1 24650,00€
+ Autrecharges
+ directes Prixtotal
+ Fraisde
+ déplacement 2000,00€
+ Hébergement(1
+ an) 2000,00€
+ Soustotal2 4000,00€
+ Charges
+ indirectes Prixtotal
+ Electricité 1000,00€
+ Amortissement
+ ordinateurs 1000,00€
+ Location 2000,00€
+ Amortissement
+ mobilier 500,00€
+Frais de gestion
+ 2 000,00 €
+ Sous total 3 6500,00€
+ Total
+ Provision pour
+ risque (en
+ pourcentage du
+ budget)
+ 35 150,00 €
+ 0,05
+ Prix final
+ 36 907,50 €
+ VII. Liste de contrôle
+ 1.
+ Authentification
+ § Lesutilisateurs se connectent sans erreurs à la plateforme
+ § Ilyaunseul point d’authentification pour pour les plateforme de 3iL
+ 2.
+ Gestion des accès
+ § Lespages sont bien protégés par une authentification
+ § Lesutilisateurs ont accès seulement aux information dont ils on droit
+ 3.
+ Téléverse de fichier
+ § LeCMSpermetdetéléverser les fichier PDF, texte et vidéo
+ § Onpeutautomatiser le téléversement des fichiers lorsqu’on a une grande quantité
+ § Lataille maximale de fichier à téléverser est de 1 GO
+ 4.
+ Gestion des procès verbaux
+ § Lesprocès verbaux peuvent êtres ajoutées sur la plateforme
+ § Seulles utilisateurs concernés on accès au procès verbaux
+ 22
+5.
+ Accessibilité
+ § Laplateforme forme fonctionne correctement sur les navigateur mobiles et PC
+ § Laplateforme est lisible par les lecteurs d’écran
+ 6.
+ Expérience utilisateur/Esthétique
+ § Lesinformation pertinentes sont visibles en première ligne
+ § Lenombredeclic maximum pour accéder à une fonctionnalité est de 3
+ § Lesite est en phase avec la charte éditoriale de 3iL.
+ 7.
+ Disponibilité
+ § Tempsderéponse max de 400 ms
+ § Leserveur de cache Redis est installé
+ § LeCDNestbienconfiguré
+ 8.
+ Sécurité
+ § Lecertificat SSL/TLS est bien installé
+ § Lesdonnées sensibles sont chiffrées
+ § Lesmotsde passes sont hachée
